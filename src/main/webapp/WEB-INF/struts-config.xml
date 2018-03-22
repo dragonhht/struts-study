@@ -4,10 +4,11 @@
 <struts-config>
   <data-sources />
   
-  <form-beans>  	
-  	<!-- 配置登录form -->
-  	<form-bean name="loginForm" 
-  		type="landray.study.form.StudentForm"></form-bean>
+  <form-beans>
+  	<form-bean name="bookForm"
+  		type="landray.study.form.BookForm"></form-bean>
+
+      <form-bean name="homeForm" type="landray.study.form.HomeForm" ></form-bean>
   	
   </form-beans>
   
@@ -16,13 +17,31 @@
   
   <action-mappings >
 
-   <action path="/login"
+   <action path="/bookman"
   		  type="org.springframework.web.struts.DelegatingActionProxy"
-		  name="loginForm"
+		  name="bookForm"
 		  parameter="method_"
 		  scope="request" >
-  		<forward name="index" path="/index.jsp" ></forward>
+       <forward name="showbook" path="/booksman/showBooks.jsp" ></forward>
+       <forward name="editbook" path="/booksman/editBook.jsp" ></forward>
+       <forward name="addbook" path="/booksman/addBooks.jsp" ></forward>
+       <forward name="adderror" path="/booksman/adderror.jsp"></forward>
+       <forward name="addsuccess" path="/booksman/addsuccess.jsp"></forward>
   </action>
+
+      <action path="/library"
+              type="org.springframework.web.struts.DelegatingActionProxy"
+              name="homeForm"
+              parameter="method_"
+              scope="request"
+      >
+          <forward name="showhome" path="/booksman/showHomes.jsp" ></forward>
+          <forward name="updateHome" path="/booksman/editHome.jsp" ></forward>
+          <forward name="addhome" path="/booksman/addHome.jsp" ></forward>
+          <forward name="adderror" path="/booksman/adderror.jsp"></forward>
+          <forward name="addsuccess" path="/booksman/addsuccess.jsp"></forward>
+          <forward name="showlibrarybooks" path="/booksman/showLibraryBooks.jsp"></forward>
+      </action>
 	
   </action-mappings>
   <message-resources parameter="landray.study.struts.ApplicationResources" key="km-books"></message-resources>

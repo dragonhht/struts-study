@@ -1,0 +1,71 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="landray.study.model">
+	<class
+		name="Book"
+		table="book">
+		<id
+			name="id"
+			column="b_id">
+			<generator
+				class="increment" />
+		</id>
+
+		<property
+			name="bookName"
+			column="b_bookName"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="bookPrice"
+			column="b_bookPrice"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="browseFlag"
+			column="b_browseFlag"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="bookHome"
+			column="b_bookHome"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="bookMarks"
+			column="b_bookMarks"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<!-- 映射属性数组 -->
+		<array name="bookType" table="b_Type_table">
+			<key column="b_id" not-null="true"></key>
+			<list-index column="list_type"></list-index>
+			<element 
+				type="java.lang.String"
+				column="type_name"
+				/>
+		</array>
+
+	<many-to-one name="home" column="home_id" update="true" insert="true" lazy="false" ></many-to-one>
+
+</class>
+	
+</hibernate-mapping>

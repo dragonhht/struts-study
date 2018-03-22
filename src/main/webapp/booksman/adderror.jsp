@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>添加失败</title>
 </head>
 <body>
-	<a href="<%=request.getContextPath() %>/library.do?method_=showHomes">图书馆管理</a>
-	<a href="<%=request.getContextPath() %>/bookman.do?method_=showBooks">图书管理</a>
-
+	添加失败
 </body>
 </html>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="landray.study.model">
+    <class name="Home" table="home">
+
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+
+        <property
+                name="homeName"
+                column="homeName"
+                update="true"
+                insert="true"
+                length="200"
+                not-null="true"/>
+
+        <property
+                name="homeMarks"
+                column="homeMarks"
+                update="true"
+                insert="true"
+                length="36"
+                not-null="false"/>
+
+        <bag name="books"
+             lazy="false"
+             cascade="all-delete-orphan">
+            <key column="home_id"/>
+            <one-to-many class="landray.study.model.Book"/>
+        </bag>
+
+    </class>
+</hibernate-mapping>

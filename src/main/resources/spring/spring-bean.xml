@@ -5,18 +5,6 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-<!--<bean id="studentDao" class="landray.study.dao.impl.StudentDaoImpl" >
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-
-    <bean id="studentService" class="landray.study.service.impl.StudentServiceImpl">
-        <property name="studentDao" ref="studentDao" />
-    </bean>
-
-    <bean name="/login" class="landray.study.action.StudentAction" >
-        <property name="studentService" ref="studentService" />
-    </bean>-->
-
     <context:component-scan base-package="landray.study.action,landray.study.service,landray.study.dao" />
 
 
