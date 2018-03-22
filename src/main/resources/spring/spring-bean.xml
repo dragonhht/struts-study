@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="studentDao" class="landray.study.dao.impl.StudentDaoImpl" >
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="studentService" class="landray.study.service.impl.StudentServiceImpl">
+        <property name="studentDao" ref="studentDao" />
+    </bean>
+
+    <bean name="/login" class="landray.study.action.StudentAction" >
+        <property name="studentService" ref="studentService" />
+    </bean>
+
+</beans>
