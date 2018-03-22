@@ -28,11 +28,10 @@
 		&nbsp;&nbsp;<button onclick='javascript:location.href="<%=request.getContextPath()%>/booksman/addHome.jsp"'>录入新图书馆</button>
 		<table border="1" >
 			<tr>
-				<td><bean:message bundle="km-books" key="library.name"/>:</td>
-				<td><bean:message bundle="km-books" key="library.marks"/>:</td>
+				<td><bean:message bundle="km-books" key="library.name"/></td>
+				<td><bean:message bundle="km-books" key="library.marks"/></td>
 			</tr>
-				<c:forEach items="${homes }" var="home">
-				
+				<c:forEach items="${requestScope.homes }" var="home">
 			<tr>
 			 	<td>${home.homeName } </td>
 				<td>${home.homeMarks } </td>

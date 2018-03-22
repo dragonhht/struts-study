@@ -42,7 +42,7 @@ public class BookAction extends DispatchAction {
 			HttpServletResponse response) throws Exception {
 		
 		BookForm bookForm = (BookForm) form;
-		bookService.addBook(bookForm);
+		bookService.saveBook(bookForm);
 		return showBooks(mapping, bookForm, request, response);
 	}
 	

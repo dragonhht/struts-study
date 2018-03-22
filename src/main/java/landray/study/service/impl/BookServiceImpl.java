@@ -17,7 +17,7 @@ public class BookServiceImpl implements BookService {
 	private BookDao bookDao;
 
 	@Override
-	public void addBook(BookForm form) {
+	public void saveBook(BookForm form) {
 		Book book = formToModel(form);
 		if (book != null) {
 			Home home = new Home();

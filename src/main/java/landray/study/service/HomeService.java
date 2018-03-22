@@ -9,7 +9,7 @@ public interface HomeService {
 
 	List<Home> showLibrary();
 
-	void addLibrary(HomeForm homeForm);
+	void saveLibrary(HomeForm homeForm);
 
 	void updateLibrary(HomeForm homeForm);
 

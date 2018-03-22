@@ -44,7 +44,7 @@
       </action>
 	
   </action-mappings>
-  <message-resources parameter="landray.study.struts.ApplicationResources" key="km-books"></message-resources>
+  <message-resources parameter="ApplicationResources" key="km-books"></message-resources>
 
 </struts-config>
 

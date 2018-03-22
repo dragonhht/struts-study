@@ -24,7 +24,7 @@ public class HomeAction extends DispatchAction {
 	public ActionForward addHome(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		HomeForm homeForm = (HomeForm) form;
-		service.addLibrary(homeForm);
+		service.saveLibrary(homeForm);
 		return showHomes(mapping, homeForm, request, response);
 	}
 
@@ -52,8 +52,8 @@ public class HomeAction extends DispatchAction {
 	
 	public ActionForward showHomes(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-			List<Home> Home = service.showLibrary();
-			request.setAttribute("homes", Home);
+			List<Home> homes = service.showLibrary();
+			request.setAttribute("homes", homes);
 			return mapping.findForward("showhome");
 	}
 	

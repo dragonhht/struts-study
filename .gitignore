@@ -1,4 +1,5 @@
 .idea/
 log/
 target/
-struts-study.iml
+landray-study.iml
+out/

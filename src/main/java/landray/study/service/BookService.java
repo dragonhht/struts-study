@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface BookService {
 
-	void addBook(BookForm form);
+	void saveBook(BookForm form);
 
 	void deleteBook(String id);
 

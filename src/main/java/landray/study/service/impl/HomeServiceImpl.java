@@ -21,7 +21,7 @@ public class HomeServiceImpl implements HomeService {
 	}
 
 	@Override
-	public void addLibrary(HomeForm homeForm) {
+	public void saveLibrary(HomeForm homeForm) {
 		Home home = FormToModel(homeForm);
 		if (home != null) {
 			homeDao.addLibrary(home);
