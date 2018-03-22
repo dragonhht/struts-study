@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="studentDao" class="landray.study.dao.impl.StudentDaoImpl" >
+<!--<bean id="studentDao" class="landray.study.dao.impl.StudentDaoImpl" >
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
@@ -13,6 +15,9 @@
 
     <bean name="/login" class="landray.study.action.StudentAction" >
         <property name="studentService" ref="studentService" />
-    </bean>
+    </bean>-->
+
+    <context:component-scan base-package="landray.study.action,landray.study.service,landray.study.dao" />
+
 
 </beans>

@@ -6,6 +6,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,13 +18,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author: huang
  * Date: 18-3-22
  */
+@Controller("/login")
 public class StudentAction extends DispatchAction {
 
+    @Autowired
     private StudentService studentService;
-
-    public void setStudentService(StudentService studentService) {
-        this.studentService = studentService;
-    }
 
     public ActionForward login(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                                HttpServletResponse response) throws Exception {
