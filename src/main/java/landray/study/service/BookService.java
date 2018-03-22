@@ -18,6 +18,6 @@ public interface BookService {
 
 	Book getBookById(String id);
 
-	List<Home> getAllHome();
+	List<Book> findBook(String name);
 
 }

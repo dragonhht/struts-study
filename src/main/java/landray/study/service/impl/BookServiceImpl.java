@@ -59,11 +59,13 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<Home> getAllHome() {
-		return bookDao.getAllHome();
+	public List<Book> findBook(String name) {
+		if (name != null && !name.equals("")) {
+			return bookDao.getBookByName(name);
+		}
+		return bookDao.listBook();
 	}
-	
-	
+
 	private Book formToModel(BookForm bookForm) {
 		if (bookForm != null) {
 			Book book = new Book();

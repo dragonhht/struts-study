@@ -4,6 +4,7 @@ import landray.study.form.BookForm;
 import landray.study.model.Book;
 import landray.study.model.Home;
 import landray.study.service.BookService;
+import landray.study.service.HomeService;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -20,6 +21,8 @@ public class BookAction extends DispatchAction {
 
 	@Autowired
 	private BookService bookService;
+	@Autowired
+	private HomeService homeService;
 
 	/**
 	 *	展示所有图书信息.
@@ -79,8 +82,16 @@ public class BookAction extends DispatchAction {
 		bookService.updateBook(bookForm);
 		return showBooks(mapping, bookForm, request, response);
 	}
-	
+
+	public ActionForward findBookByName(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		BookForm bookForm = (BookForm) form;
+		List<Book> books = bookService.findBook(bookForm.getBookName());
+		request.setAttribute("books", books);
+		return mapping.findForward("showbook");
+	}
+
 	private List<Home> getAllHome() {
-		return bookService.getAllHome();
+		return homeService.showLibrary();
 	}
 }

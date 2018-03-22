@@ -22,7 +22,8 @@
 
 </head>
 <body>
-
+<a href="<%=request.getContextPath() %>/library.do?method_=showHomes">图书馆管理</a>
+<a href="<%=request.getContextPath() %>/bookman.do?method_=showBooks">图书管理</a>
 <center>
 		<font size="5" color="#FF0000">图书管列表</font>
 		&nbsp;&nbsp;<button onclick='javascript:location.href="<%=request.getContextPath()%>/booksman/addHome.jsp"'>录入新图书馆</button>

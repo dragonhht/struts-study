@@ -22,18 +22,25 @@
 
 </head>
 <body>
-
+<a href="<%=request.getContextPath() %>/library.do?method_=showHomes">图书馆管理</a>
+<a href="<%=request.getContextPath() %>/bookman.do?method_=showBooks">图书管理</a>
 <center>
 		<font size="5" color="#FF0000">图书信息列表</font>
 		&nbsp;&nbsp;<button onclick='javascript:location.href="<%=request.getContextPath()%>/bookman.do?method_=toAddBookPage"'>录入图书信息</button>
 		<table border="1" >
 			<tr>
-				<td><bean:message bundle="km-books" key="books.name"/>:</td>
-				<td><bean:message bundle="km-books" key="books.price"/>:</td>
-				<td><bean:message bundle="km-books" key="books.jieYueFlag"/>:</td>
-				<td><bean:message bundle="km-books" key="books.type"/>:</td>
-				<td><bean:message bundle="km-books" key="books.home"/>:</td>
-				<td><bean:message bundle="km-books" key="books.remarks"/>:</td>
+				<td><bean:message bundle="km-books" key="books.name"/></td>
+				<td><bean:message bundle="km-books" key="books.price"/></td>
+				<td><bean:message bundle="km-books" key="books.jieYueFlag"/></td>
+				<td><bean:message bundle="km-books" key="books.type"/></td>
+				<td><bean:message bundle="km-books" key="books.home"/></td>
+				<td><bean:message bundle="km-books" key="books.remarks"/></td>
+				<td>
+					<html:form action="/bookman.do?method_=findBookByName">
+						<html:text property="bookName"></html:text>
+						<html:submit value="提交"></html:submit>
+					</html:form>
+				</td>
 			</tr>
 				<c:forEach items="${books }" var="book">
 				

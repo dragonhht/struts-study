@@ -47,6 +47,12 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 	}
 
 	@Override
+	public List<Book> getBookByName(String name) {
+		String hql = "from Book where bookName like :bookName";
+		return (List<Book>) this.getHibernateTemplate().findByNamedParam(hql, "bookName", "%" + name + "%");
+	}
+
+	@Override
 	public List<Home> getAllHome() {
 		return (List<Home>) this.getHibernateTemplate().find("from Home");
 	}
